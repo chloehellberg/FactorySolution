@@ -21,64 +21,65 @@ namespace Factory.Controllers
     }
     public ActionResult Create()
     {
-        ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
-        return View();
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View();
     }
+    
     [HttpPost]
     public ActionResult Create(Machine machine, int EngineerId)
     {
-        _db.Machines.Add(machine);
-        if (EngineerId != 0)
-        {
-          _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
-        }
-        _db.SaveChanges();
-        return RedirectToAction("Index");
+      _db.Machines.Add(machine);
+      if (EngineerId != 0)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-        var thisMachine = _db.Machines
-        .Include(machine => machine.Engineers)
-        .ThenInclude(join => join.Engineer)
-        .FirstOrDefault(machine => machine.MachineId == id);
-        return View(thisMachine);
+      var thisMachine = _db.Machines
+      .Include(machine => machine.Engineers)
+      .ThenInclude(join => join.Engineer)
+      .FirstOrDefault(machine => machine.MachineId == id);
+      return View(thisMachine);
     }
 
-    // public ActionResult Edit(int id)
-    // {
-    //     var thisMember = _db.Members.FirstOrDefault(members => members.MemberId == id);
-    //     ViewBag.FarmId = new SelectList(_db.Farms, "FarmId", "Name");
-    //     return View(thisMember);
-    // }
+    public ActionResult Edit(int id)
+    {
+      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View(thisMachine);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Member member, int FarmId)
-    // {
-    //   if (FarmId != 0)
-    //   {
-    //     _db.FarmMember.Add(new FarmMember() { FarmId = FarmId, MemberId = member.MemberId });
-    //   }
-    //   _db.Entry(member).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Edit(Machine machine, int EngineerId)
+    {
+      if (EngineerId != 0)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+      }
+      _db.Entry(machine).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   return View(thisItem);
-    // }
+    public ActionResult Delete(int id)
+    {
+      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
+      return View(thisMachine);
+    }
 
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   _db.Items.Remove(thisItem);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
+      _db.Machines.Remove(thisMachine);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // [HttpPost]
     // public ActionResult DeleteCategory(int joinId)
