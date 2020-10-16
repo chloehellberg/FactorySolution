@@ -58,25 +58,25 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
     
-    // [HttpPost]
-    // public ActionResult AddMember(Farm farm, int MemberId)
-    // {
-    //   if (MemberId != 0)
-    //   {
-    //    _db.FarmMember.Add(new FarmMember() { MemberId = MemberId, FarmId = farm.FarmId });
-    //    }
-    //    _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult AddMachine(Engineer engineer, int MachineId)
+    {
+      if (MachineId != 0)
+      {
+       _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
+       }
+       _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // [HttpPost]
-    // public ActionResult DeleteMember(int joinId)
-    // {
-    //     var joinEntry = _db.FarmMember.FirstOrDefault(entry => entry.FarmMemberId == joinId);
-    //     _db.FarmMember.Remove(joinEntry);
-    //     _db.SaveChanges();
-    //     return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult DeleteMachine(int joinId)
+    {
+        var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+        _db.EngineerMachine.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
     public ActionResult Delete(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);

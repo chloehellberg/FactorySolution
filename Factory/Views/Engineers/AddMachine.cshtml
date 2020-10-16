@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+@Html.ActionLink(" All Engineers", "Index", null, null, new { @class="btn btn-info fa fa-user-md" })
+<h2>Add a Machine</h2>
+
+<h4>Add a Machine to @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+  <table>
+    <tr>
+      <td>@Html.Label("Select machine")</td>
+      <td>@Html.DropDownList("machineId")</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-info fa "><i class="fa-user-plus"> Save</i></button>
+}
