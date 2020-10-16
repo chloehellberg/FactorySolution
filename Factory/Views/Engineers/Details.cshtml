@@ -3,7 +3,7 @@
 }
 
 @model Factory.Models.Engineer;
-@Html.ActionLink(" All Engineers", "Index",null, null, new { @class="btn btn-info fa fa-user-md" })
+@Html.ActionLink(" All Engineers", "Index",null, null, new { @class="btn btn-info fa fa-user" })
 @Html.ActionLink(" Edit/Add Machine Licenses", "Edit", new { id = Model.EngineerId }, new { @class="btn btn-info fa fa-edit" })
 @Html.ActionLink(" Delete", "Delete", new { id = Model.EngineerId }, new { @class="btn btn-info fa fa-times" })
 
