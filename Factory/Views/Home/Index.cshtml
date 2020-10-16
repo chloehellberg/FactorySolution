@@ -1,0 +1,15 @@
+﻿@{
+  Layout = "_Layout";
+}
+<h1>Let's fix your machine!</h1>
+<div class="row">
+  <div class="col-md-4">
+    @Html.ActionLink(" All Members", "Index", "Members", null, new { @class="btn btn-info fa fa-user" })
+  </div>
+  <div class="col-md-4">
+    @Html.ActionLink(" All Farms", "Index", "Farms", null, new { @class="btn btn-info fa fa-user-md" })
+  </div>
+  <div class="col-md-4">
+    @Html.ActionLink(" All Agriculture/Offerings", "Index", "Agricultures", null, new { @class="btn btn-info fa fa-medkit" })
+  </div>
+</div>
