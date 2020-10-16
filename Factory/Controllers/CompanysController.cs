@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace Factory.Controllers
 {
-  public class CompanyController : Controller
+  public class CompanysController : Controller
   {
   private readonly FactoryContext _db;
 
-    public CompanyController(FactoryContext db)
+    public CompanysController(FactoryContext db)
     {
       _db = db;
     }
@@ -19,7 +19,14 @@ namespace Factory.Controllers
     public ActionResult Index()
     {
       List<Engineer> model = _db.Engineers.ToList();
-        return View(model);
+      return View(model);
     }
   }
 }
+
+//  var thisData = _db.Engineers
+//       .Include(engineers => engineers.Machines)
+//       .ThenInclude(join => join.Machine)
+//       .FirstOrDefault(engineer => engineer.EngineerId == id);
+//       return View(thisData);
+
