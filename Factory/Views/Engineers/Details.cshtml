@@ -22,7 +22,7 @@ else
   @foreach(var join in Model.Machines)
   {
     <li>@join.Machine.Name
-    @Html.ActionLink("Delete", "DeleteMachine", "Engineers", new { joinId = @join.EngineerMachineId, EngineerId = Model.EngineerId }, new { @class="btn btn-info fa fa-times" })
+    @Html.ActionLink("Delete", "DeleteMachine", "Engineers", new { joinId = @join.EngineerMachineId }, new { @class="btn btn-info fa fa-times" })
     </li>
   }
   </ul>

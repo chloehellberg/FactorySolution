@@ -83,7 +83,6 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     } 
 
-    [HttpPost]
     public ActionResult DeleteMachine(int joinId)
     {
         var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
@@ -93,3 +92,4 @@ namespace Factory.Controllers
     }
   }
 }
+
