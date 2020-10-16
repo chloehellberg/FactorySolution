@@ -8,10 +8,8 @@ namespace Factory.Models
     {
       this.Machines = new HashSet<EngineerMachine>();
     }
-
     public int EngineerId { get; set; }
     public string Name { get; set; }
-
     public virtual ICollection<EngineerMachine> Machines { get; set; }
   }
 }
