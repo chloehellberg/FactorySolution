@@ -44,19 +44,19 @@ namespace Factory.Controllers
       return View(thisEngineer);
     }
     
-    // public ActionResult Edit(int id)
-    // {
-    //   var thisFarm = _db.Farms.FirstOrDefault(farm => farm.FarmId == id);
-    //   return View(thisFarm);
-    // }
+    public ActionResult Edit(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      return View(thisEngineer);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Farm farm)
-    // {
-    //   _db.Entry(farm).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Edit(Engineer engineer)
+    {
+      _db.Entry(engineer).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
     
     // [HttpPost]
     // public ActionResult AddMember(Farm farm, int MemberId)
@@ -77,19 +77,19 @@ namespace Factory.Controllers
     //     _db.SaveChanges();
     //     return RedirectToAction("Index");
     // }
-    //  public ActionResult Delete(int id)
-    // {
-    //   var thisFarm = _db.Farms.FirstOrDefault(farms => farms.FarmId == id);
-    //   return View(thisFarm);
-    // }
+    public ActionResult Delete(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
+      return View(thisEngineer);
+    }
 
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisFarm = _db.Farms.FirstOrDefault(farms => farms.FarmId == id);
-    //   _db.Farms.Remove(thisFarm);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // } 
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
+      _db.Engineers.Remove(thisEngineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    } 
   }
 }

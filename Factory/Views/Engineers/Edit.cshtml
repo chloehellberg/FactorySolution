@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+@Html.ActionLink(" All Engineers", "Index", null, null, new { @class="btn btn-info fa fa-user-md" })
+<h2>Edit</h2>
+
+<h4>Edit @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.Name)</td>
+      <td>@Html.EditorFor(model => model.Name)</td>
+    </tr>
+    @* <tr>
+      <td>@Html.LabelFor(model => model.Location)</td>
+      <td>@Html.EditorFor(model => model.Location)</td>
+    </tr>
+     <tr>
+      <td>@Html.LabelFor(model => model.Description)</td>
+      <td>@Html.EditorFor(model => model.Description)</td>
+    </tr> *@
+  </table>
+  <button type="submit" class="btn btn-info fa"><i class="fa-edit"> Save</i></button>
+}
