@@ -13,7 +13,7 @@ _This is an MVC web application for an imaginary factory that helps keep track o
 [x] * Ability to select a machine, see its details and a list of all engineers licensed to repair it
 [x] * Ability to add new engineers to the system when they are hired and ability to add new machines to the system when they are installed
 [x] * Ability to add new machines even if no engineers are employed and ability to add new engineers even if no machines are installed
-[ ] * Ability to add or remove machines that a specific engineer is licensed to repair. Ability to modify this relationship from the other side and add or remove engineers from a specific machine
+[x] * Ability to add or remove machines that a specific engineer is licensed to repair. Ability to modify this relationship from the other side and add or remove engineers from a specific machine
 [ ] * Ability to navigate to a splash page that lists all engineers and machines. Users should be able to click on individual engineers or machines to see all the engineers/machines that belong to it
 
 

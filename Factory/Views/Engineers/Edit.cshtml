@@ -16,14 +16,10 @@
       <td>@Html.LabelFor(model => model.Name)</td>
       <td>@Html.EditorFor(model => model.Name)</td>
     </tr>
-    @* <tr>
-      <td>@Html.LabelFor(model => model.Location)</td>
-      <td>@Html.EditorFor(model => model.Location)</td>
+   <tr>
+      <td>@Html.Label("Select Machine")</td>
+      <td>@Html.DropDownList("MachineId")</td>
     </tr>
-     <tr>
-      <td>@Html.LabelFor(model => model.Description)</td>
-      <td>@Html.EditorFor(model => model.Description)</td>
-    </tr> *@
   </table>
   <button type="submit" class="btn btn-info fa"><i class="fa-edit"> Save</i></button>
 }
