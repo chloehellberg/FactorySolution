@@ -4,9 +4,8 @@
 
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
-@Html.ActionLink(" Add", "Create", null, null, new { @class="btn btn-info fa fa-user-plus" })
-@Html.ActionLink(" Home", "Index", "Home", null, new { @class="btn btn-info fa fa-home" })
-<h1>Machines</h1>
+@Html.ActionLink(" Add/Install New Machine", "Create", null, null, new { @class="btn btn-info fa fa-user-plus" })
+<h1>Current Machines</h1>
 
 @if (@Model.Count == 0)
 {

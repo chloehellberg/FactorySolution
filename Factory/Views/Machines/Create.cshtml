@@ -3,8 +3,9 @@
 }
 
 @model Factory.Models.Machine
-@Html.ActionLink(" All Machines", "Index", null, null, new { @class="btn btn-info fa fa-user" })
-<p>Add a new machine</p>
+@Html.ActionLink("View All Machines", "Index", null, null, new { @class="btn btn-info fa fa-user" })
+<br><br>
+<p>Add a New Machine:</p>
 @using (Html.BeginForm())
 {
   <table>
@@ -25,5 +26,6 @@
       <td>@Html.DropDownList("DoctorId")</td>
     </tr> *@
   </table>
+  <br>
   <button type="submit" class="btn btn-info fa fa-user-plus"><i class=""> Add</i></button>
 }

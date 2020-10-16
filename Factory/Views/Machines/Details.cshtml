@@ -3,10 +3,9 @@
 }
 
 @model Factory.Models.Machine
-@Html.ActionLink(" View All Machines", "Index", null, null, new { @class="btn btn-info fa fa-user" })
-@Html.ActionLink(" Edit", "Edit", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-edit" })
-@Html.ActionLink(" Delete", "Delete", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-times" })
-@Html.ActionLink(" Add Machine", "AddMachine", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-user-plus" })
+@Html.ActionLink("View All Machines", "Index", null, null, new { @class="btn btn-info fa fa-user" })
+@Html.ActionLink("Edit/Assign Engineer", "Edit", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink("Delete", "Delete", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-times" })
 
 
 <p>@Html.DisplayFor(model => model.Name) | Machine Details</p>

@@ -4,7 +4,7 @@
 
 @model Factory.Models.Engineer;
 @Html.ActionLink(" All Engineers", "Index",null, null, new { @class="btn btn-info fa fa-user-md" })
-@Html.ActionLink(" Edit", "Edit", new { id = Model.EngineerId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink(" Edit/Add Machine Licenses", "Edit", new { id = Model.EngineerId }, new { @class="btn btn-info fa fa-edit" })
 @Html.ActionLink(" Delete", "Delete", new { id = Model.EngineerId }, new { @class="btn btn-info fa fa-times" })
 
 <h2>@Html.DisplayFor(model => model.Name)'s Details</h2>
@@ -17,7 +17,7 @@
 }
 else
 {
-  <h4>Machines</h4>
+  <h4>Machines They Are Licensed To Repair:</h4>
   <ul>
   @foreach(var join in Model.Machines)
   {
