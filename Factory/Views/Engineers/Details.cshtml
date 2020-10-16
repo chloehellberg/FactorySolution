@@ -1,0 +1,45 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer;
+@Html.ActionLink(" All Engineers", "Index",null, null, new { @class="btn btn-info fa fa-user-md" })
+@Html.ActionLink(" Edit", "Edit", new { id = Model.EngineerId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink(" Delete", "Delete", new { id = Model.EngineerId }, new { @class="btn btn-info fa fa-times" })
+
+<h2>@Html.DisplayFor(model => model.Name)'s Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.Machines.Count == 0)
+{
+  <p>This Engineer does not have any Machines assigned to it.</p>
+}
+else
+{
+  <h4>Machines</h4>
+  <ul>
+  @foreach(var join in Model.Machines)
+  {
+    <li>@join.Machine.Name
+    @Html.ActionLink("Delete", "DeleteMember", "Engineers", new { joinId = @join.EngineerMachineId, EngineerId = Model.EngineerId }, new { @class="btn btn-info fa fa-times" })
+    </li>
+  }
+  </ul>
+}
+@* @if(@Model.Members.Count == 0)
+{
+  <p>This Farm does not have any specialties.</p>
+}
+else
+{
+  <h4>Assigned Specialties</h4>
+  <ul>
+  @foreach(var join in Model.Specialties)
+  {
+    <li>@join.Specialty.SpecialtyName
+    @Html.ActionLink("Delete", "DeleteSpecialty", "Specialties", new { joinId = @join.DoctorSpecialtyId , DoctorId = Model.DoctorId }, new { @class="btn btn-info fa fa-times" })
+    </li>
+  }
+  </ul>
+} *@
