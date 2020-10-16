@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is an MVC web application for an imaginary factory that helps keep track of their machine repairs. Application helps manage the factory's engineers and the machines they are licensed to fix. 
+_This is an MVC web application for an imaginary factory that helps keep track of their machine repairs. Application helps manage the factory's engineers and the machines they are licensed to fix._
   * _Specific Functionality Includes_
    * Ability to add and see a list of all engineers as well as ability to add and see a list of all machines
    * Ability to select an engineer, see their details and a list of all machines that engineer is licensed to repair
@@ -16,9 +16,6 @@ _This is an MVC web application for an imaginary factory that helps keep track o
    * Ability to add or remove machines that a specific engineer is licensed to repair. Ability to modify this relationship from the other side and add or remove engineers from a specific machine
    * Ability to navigate to a splash page that lists all engineers and machines. Users should be able to click on individual engineers or machines to see all the engineers/machines that belong to it
 
-
-
-  
 
 ## Setup/Installation Requirements
 
@@ -46,7 +43,28 @@ _This is an MVC web application for an imaginary factory that helps keep track o
 * Setup with SQL Statements
   * Enter the below code into your SQL database to create/run: 
 
-
+  CREATE DATABASE `chloe_hellberg` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+  USE `chloe_hellberg`;
+  CREATE TABLE `Engineers` (
+    `EngineerId` int(11) NOT NULL AUTO_INCREMENT,
+    `Name` longtext,
+    PRIMARY KEY (`EngineerId`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CREATE TABLE `Machines` (
+    `MachineId` int(11) NOT NULL AUTO_INCREMENT,
+    `Name` longtext,
+    PRIMARY KEY (`MachineId`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CREATE TABLE `EngineerMachine` (
+    `EngineerMachineId` int(11) NOT NULL AUTO_INCREMENT,
+    `EngineerId` int(11) NOT NULL,
+    `MachineId` int(11) NOT NULL,
+    PRIMARY KEY (`EngineerMachineId`),
+    KEY `IX_EngineerMachine_EngineerId` (`EngineerId`),
+    KEY `IX_EngineerMachine_MachineId` (`MachineId`),
+    CONSTRAINT `FK_EngineerMachine_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `engineers` (`EngineerId`) ON DELETE CASCADE,
+    CONSTRAINT `FK_EngineerMachine_Machines_MachineId` FOREIGN KEY (`MachineId`) REFERENCES `machines` (`MachineId`) ON DELETE CASCADE
+  ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ## Known Bugs
 

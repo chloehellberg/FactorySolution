@@ -95,6 +95,14 @@ namespace Factory.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+    public ActionResult SeeAll()
+    {
+      List<Engineer> model = _db.Engineers.ToList();
+      return View(model);
+    }
   }
 }
 
+// var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+//       ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+//       return View(thisEngineer);
