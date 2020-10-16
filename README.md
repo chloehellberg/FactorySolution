@@ -68,7 +68,7 @@ _This is an MVC web application for an imaginary factory that helps keep track o
 
 ## Known Bugs
 
-_No known bugs at this time._
+_When you click on 'View All Machines & Engineers' you will only see the Engineers list. Currently having issues displaying both at the same time._
 
 ## Support and contact details
 

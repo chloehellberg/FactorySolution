@@ -98,12 +98,8 @@ namespace Factory.Controllers
     public ActionResult SeeAll()
     {
       List<Engineer> model = _db.Engineers.ToList();
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      // ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
       return View(model);
     }
   }
 }
-
-// var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-//       ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
-//       return View(thisEngineer);
