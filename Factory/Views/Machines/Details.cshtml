@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+@Html.ActionLink(" View All Machines", "Index", null, null, new { @class="btn btn-info fa fa-user" })
+@Html.ActionLink(" Edit", "Edit", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink(" Delete", "Delete", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-times" })
+@Html.ActionLink(" Add Machine", "AddMachine", new { id = Model.MachineId }, new { @class="btn btn-info fa fa-user-plus" })
+
+
+<p>@Html.DisplayFor(model => model.Name) | Machine Details</p>
+<hr />
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+
+@if(@Model.Engineers.Count == 0)
+{
+  <p>This machine does not have any engineer(s) assigned to it yet.</p>
+}
+else
+{
+  <p>@Html.DisplayFor(model => model.Name)'s Engineer(s):</p>
+  <ul>
+  @foreach(var join in Model.Engineers)
+  {
+    <li>@join.Engineer.Name 
+    @Html.ActionLink("Delete", "DeleteEngineer", "Machines", new { joinId = @join.EngineerMachineId }, new { @class="btn btn-info fa fa-times" })
+    </li>
+  }
+  </ul>
+}

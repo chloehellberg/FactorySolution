@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+@Html.ActionLink(" All Machines", "Index", null, null, new { @class="btn btn-info fa fa-user" })
+<p>Add a new machine</p>
+@using (Html.BeginForm())
+{
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.Name)</td>
+      <td>@Html.TextBoxFor(model => model.Name)</td>
+    </tr>
+    @* <tr>
+      <td>@Html.LabelFor(model => model.DateOfRenewal)</td>
+      <td>@Html.TextBoxFor(model => model.DateOfRenewal)</td>
+    </tr>
+     <tr>
+      <td>@Html.LabelFor(model => model.DateOfRegistration)</td>
+      <td>@Html.TextBoxFor(model => model.DateOfRegistration)</td>
+    </tr> *@
+    @* <tr>
+      <td>@Html.Label("Select Doctor")</td>
+      <td>@Html.DropDownList("DoctorId")</td>
+    </tr> *@
+  </table>
+  <button type="submit" class="btn btn-info fa fa-user-plus"><i class=""> Add</i></button>
+}
